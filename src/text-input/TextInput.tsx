@@ -1,16 +1,32 @@
 import { ReactNode } from 'react';
 import { TextInputStructuralComponent } from '@zora/core/dist/text-input';
-import { Input as AntInput } from 'antd';
+import { InputProps, Input as AntInput } from 'antd';
 
 import { convertSize } from '../basic';
 
 export default class TextInput extends TextInputStructuralComponent {
+  private resolveProps(): InputProps {
+    const props: InputProps = {
+      className: this.getComponentClassNames(),
+      name: this.props.name,
+      value: this.props.value,
+      size: this.props.size ? convertSize(this.props.size) : 'middle',
+      disabled: this.props.disabled,
+      readOnly: this.props.readonly,
+      placeholder: this.props.placeholder,
+      allowClear: this.props.clearable,
+      maxLength: this.props.maxLength,
+      minLength: this.props.minLength,
+      onInput: ({ target }) =>
+        this.props.onInput && this.props.onInput((target as any).value),
+      onChange: ({ target }) =>
+        this.props.onChange && this.props.onChange((target as any).value),
+    };
+
+    return props;
+  }
+
   public render(): ReactNode {
-    return (
-      <AntInput
-        className={this.getComponentClassNames()}
-        size={this.props.size ? convertSize(this.props.size) : 'middle'}
-      />
-    );
+    return <AntInput {...this.resolveProps()} />;
   }
 }

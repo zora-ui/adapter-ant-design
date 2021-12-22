@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { isNumeric, isFunction } from '@zora/core/dist/basic';
+import { isNumeric } from '@zora/core/dist/basic';
 import { DataTableStructuralComponent } from '@zora/core/dist/data-table';
 
 import { Table, TableColumnType } from 'antd';
@@ -30,6 +30,13 @@ export default class DataTable extends DataTableStructuralComponent {
           pageSize: this.props.pageSize,
           pageSizeOptions: this.props.pageSizes,
           total: this.props.total,
+          onChange: (page: number, pageSize: number) => {
+            if (page !== this.props.currentPage) {
+              this.props.onCurrentChange(page);
+            } else if (pageSize !== this.props.pageSize) {
+              this.props.onSizeChange(pageSize);
+            }
+          },
         }
       : false;
   }

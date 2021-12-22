@@ -1,11 +1,11 @@
 import { ReactNode } from 'react';
 import { ButtonStructuralComponent } from '@zora/core/dist/button';
-import { Button as AntButton, ButtonProps } from 'antd';
+import { ButtonProps, Button as AntButton } from 'antd';
 
 import { convertSize } from '../basic';
 
 export default class Button extends ButtonStructuralComponent {
-  public render(): ReactNode {
+  private resolveProps(): ButtonProps {
     const props: ButtonProps = {
       className: this.getHeadlessComponent()!.getExtraClassNames().join(' '),
       size: this.props.size ? convertSize(this.props.size) : 'middle',
@@ -28,6 +28,16 @@ export default class Button extends ButtonStructuralComponent {
       }
     }
 
-    return <AntButton {...props}>{this.props.children}</AntButton>;
+    if (this.props.onClick) {
+      props.onClick = (evt) => this.props.onClick(evt);
+    }
+
+    return props;
+  }
+
+  public render(): ReactNode {
+    return (
+      <AntButton {...this.resolveProps()}>{this.props.children}</AntButton>
+    );
   }
 }
