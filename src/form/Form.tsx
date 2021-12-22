@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { normalizeClassName } from 'petals-ui/dist/basic';
 import { FormStructuralComponent } from '@zora/core/dist/form';
 import { Form as AntForm } from 'antd';
 
@@ -9,7 +8,7 @@ export default class Form extends FormStructuralComponent {
   public render(): ReactNode {
     return (
       <AntForm
-        className={normalizeClassName(this.props.className)}
+        className={this.getComponentClassNames()}
         layout={this.props.layout}
         size={
           this.props.controlSize

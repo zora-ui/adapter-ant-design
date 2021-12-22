@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { normalizeClassName } from 'petals-ui/dist/basic';
 import { ButtonStructuralComponent } from '@zora/core/dist/button';
 import { Button as AntButton, ButtonProps } from 'antd';
 
@@ -8,7 +7,7 @@ import { convertSize } from '../basic';
 export default class Button extends ButtonStructuralComponent {
   public render(): ReactNode {
     const props: ButtonProps = {
-      className: normalizeClassName(this.props.className),
+      className: this.getHeadlessComponent()!.getExtraClassNames().join(' '),
       size: this.props.size ? convertSize(this.props.size) : 'middle',
       disabled: this.props.disabled,
       ghost: this.props.outlined,
