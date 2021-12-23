@@ -11,6 +11,7 @@ import style from './style.scss';
 function normalizeWidth(width?: number | string): string | undefined {
   return isNumeric(width) ? `${width}px` : (width as string | undefined);
 }
+
 class DataTable extends DataTableStructuralComponent {
   private resolvePagination(): any {
     return this.props.hidePagination !== false
