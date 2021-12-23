@@ -8,6 +8,33 @@
       .ant-table-container {
         height: 100%;
       }
+
+      .ant-spin-container,
+      .ant-table-container,
+      .ant-table-container > .ant-table-body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .ant-table-fixed-header,
+      .ant-table-container > .ant-table-body {
+        flex-grow: 1;
+      }
+
+      .ant-table-pagination,
+      .ant-table-container > .ant-table-header{
+        flex-shrink: 0;
+      }
+
+      .ant-table-pagination {
+        margin: 0;
+        padding: 16px 0;
+      }
+
+      .ant-table-container > .ant-table-body {
+        max-height: none !important;
+        height: 0;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-import { ReactNode, createRef } from 'react';
+import { ReactNode } from 'react';
 
 import { isNumeric } from '@zora/core/dist/basic';
 import { DataTableStructuralComponent } from '@zora/core/dist/data-table';
@@ -10,56 +10,7 @@ import style from './style.scss';
 function normalizeWidth(width?: number | string): string | undefined {
   return isNumeric(width) ? `${width}px` : (width as string | undefined);
 }
-
-function getOffsetHeight(
-  el: HTMLElement | null,
-  fallbackValue: number = 0,
-): number {
-  return el ? el.offsetHeight : fallbackValue;
-}
-
-function getPaginationEl(tableEl: HTMLDivElement): HTMLElement | undefined {
-  return tableEl.getElementsByClassName('ant-table-pagination')[0] as
-    | HTMLElement
-    | undefined;
-}
-
-function calcTableBodyHeight(
-  tableEl: HTMLDivElement,
-  hidePagination: boolean,
-): string {
-  const paginationEl = getPaginationEl(tableEl);
-
-  let paginationHeight: number = 0;
-
-  if (hidePagination !== true && paginationEl) {
-    const computedStyle = getComputedStyle(paginationEl);
-
-    paginationHeight =
-      getOffsetHeight(paginationEl) +
-      parseFloat(computedStyle.marginTop) +
-      parseFloat(computedStyle.marginBottom);
-  }
-
-  return `${
-    getOffsetHeight(
-      tableEl.getElementsByClassName('ant-spin-container')[0] as HTMLElement,
-      300,
-    ) -
-    getOffsetHeight(
-      tableEl.getElementsByClassName('ant-table-header')[0] as HTMLElement,
-    ) -
-    paginationHeight
-  }px`;
-}
-
 export default class DataTable extends DataTableStructuralComponent {
-  public readonly state = { tableBodyHeight: '300px' } as any;
-
-  private readonly table = createRef<HTMLDivElement>();
-
-  private resizeEventHandler!: any;
-
   private resolvePagination(): any {
     return this.props.hidePagination !== false
       ? {
@@ -89,7 +40,7 @@ export default class DataTable extends DataTableStructuralComponent {
       dataSource: this.props.dataSource,
       pagination: this.resolvePagination(),
       loading: this.props.loading,
-      scroll: { y: this.state.tableBodyHeight },
+      scroll: { y: '300px' },
       bordered: true,
       rowKey: this.props.rowKey || 'id',
     };
@@ -137,43 +88,13 @@ export default class DataTable extends DataTableStructuralComponent {
     return props;
   }
 
-  private calcTableBodyHeight(): void {
-    const tableEl = this.table.current!;
-    const paginationEl = getPaginationEl(tableEl);
-
-    if (this.props.hidePagination !== true && !paginationEl) {
-      setTimeout(() => this.calcTableBodyHeight(), 0);
-    } else {
-      this.setState({
-        tableBodyHeight: calcTableBodyHeight(
-          tableEl,
-          this.props.hidePagination,
-        ),
-      });
-    }
-  }
-
   public render(): ReactNode {
     return (
       <div className={this.getComponentClassNames()}>
         <div className={this.getDescendantClassName('tableWrapper')}>
-          <Table {...this.resolveProps()} ref={this.table} />
+          <Table {...this.resolveProps()} />
         </div>
       </div>
     );
-  }
-
-  public componentDidMount(): void {
-    this.resizeEventHandler = () =>
-      this.setState({ tableBodyHeight: '150px' }, () =>
-        setTimeout(() => this.calcTableBodyHeight(), 0),
-      );
-
-    window.addEventListener('resize', this.resizeEventHandler, false);
-    setTimeout(() => this.calcTableBodyHeight(), 0);
-  }
-
-  public componentWillUnmount(): void {
-    window.removeEventListener('resize', this.resizeEventHandler);
   }
 }
