@@ -2,9 +2,9 @@ import { ReactNode } from 'react';
 import { FormStructuralComponent } from '@zora/core/dist/form';
 import { Form as AntForm } from 'antd';
 
-import { convertSize } from '../basic';
+import { getComponentName, convertSize } from '../basic';
 
-export default class Form extends FormStructuralComponent {
+class Form extends FormStructuralComponent {
   public render(): ReactNode {
     return (
       <AntForm
@@ -22,3 +22,7 @@ export default class Form extends FormStructuralComponent {
     );
   }
 }
+
+(Form as any).displayName = getComponentName('form');
+
+export default Form;

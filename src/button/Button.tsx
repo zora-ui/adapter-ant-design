@@ -2,9 +2,9 @@ import { ReactNode } from 'react';
 import { ButtonStructuralComponent } from '@zora/core/dist/button';
 import { ButtonProps, Button as AntButton } from 'antd';
 
-import { convertSize } from '../basic';
+import { getComponentName, convertSize } from '../basic';
 
-export default class Button extends ButtonStructuralComponent {
+class Button extends ButtonStructuralComponent {
   private resolveProps(): ButtonProps {
     const props: ButtonProps = {
       className: this.getHeadlessComponent()!.getExtraClassNames().join(' '),
@@ -18,10 +18,9 @@ export default class Button extends ButtonStructuralComponent {
       props.type = 'primary';
     } else {
       if (this.props.color === 'danger') {
+        props.type = 'primary';
         props.danger = true;
-      }
-
-      if (this.props.border === 'none') {
+      } else if (this.props.border === 'none') {
         props.type = 'text';
       } else if (this.props.border === 'dashed') {
         props.type = 'dashed';
@@ -41,3 +40,7 @@ export default class Button extends ButtonStructuralComponent {
     );
   }
 }
+
+(Button as any).displayName = getComponentName('button');
+
+export default Button;

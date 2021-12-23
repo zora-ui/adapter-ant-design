@@ -2,7 +2,9 @@ import { ReactNode } from 'react';
 import { LayoutFooterStructuralComponent } from '@zora/core/dist/layout';
 import { Layout as AntLayout } from 'antd';
 
-export default class LayoutFooter extends LayoutFooterStructuralComponent {
+import { getComponentName } from '../basic';
+
+class LayoutFooter extends LayoutFooterStructuralComponent {
   public render(): ReactNode {
     return (
       <AntLayout.Footer
@@ -13,3 +15,7 @@ export default class LayoutFooter extends LayoutFooterStructuralComponent {
     );
   }
 }
+
+(LayoutFooter as any).displayName = getComponentName('layoutFooter');
+
+export default LayoutFooter;

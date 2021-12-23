@@ -2,7 +2,9 @@ import { ReactNode } from 'react';
 import { LayoutHeaderStructuralComponent } from '@zora/core/dist/layout';
 import { Layout as AntLayout } from 'antd';
 
-export default class LayoutHeader extends LayoutHeaderStructuralComponent {
+import { getComponentName } from '../basic';
+
+class LayoutHeader extends LayoutHeaderStructuralComponent {
   public render(): ReactNode {
     return (
       <AntLayout.Header
@@ -13,3 +15,7 @@ export default class LayoutHeader extends LayoutHeaderStructuralComponent {
     );
   }
 }
+
+(LayoutHeader as any).displayName = getComponentName('layoutHeader');
+
+export default LayoutHeader;

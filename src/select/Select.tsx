@@ -2,9 +2,9 @@ import { ReactNode } from 'react';
 import { SelectStructuralComponent } from '@zora/core/dist/select';
 import { Select as AntSelect } from 'antd';
 
-import { convertSize } from '../basic';
+import { getComponentName, convertSize } from '../basic';
 
-export default class Select extends SelectStructuralComponent {
+class Select extends SelectStructuralComponent {
   public render(): ReactNode {
     return (
       <AntSelect
@@ -21,3 +21,7 @@ export default class Select extends SelectStructuralComponent {
     );
   }
 }
+
+(Select as any).displayName = getComponentName('select');
+
+export default Select;

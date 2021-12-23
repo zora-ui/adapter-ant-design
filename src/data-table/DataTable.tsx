@@ -5,12 +5,13 @@ import { DataTableStructuralComponent } from '@zora/core/dist/data-table';
 
 import { TableColumnType, TableProps, Table } from 'antd';
 
+import { getComponentName } from '../basic';
 import style from './style.scss';
 
 function normalizeWidth(width?: number | string): string | undefined {
   return isNumeric(width) ? `${width}px` : (width as string | undefined);
 }
-export default class DataTable extends DataTableStructuralComponent {
+class DataTable extends DataTableStructuralComponent {
   private resolvePagination(): any {
     return this.props.hidePagination !== false
       ? {
@@ -56,7 +57,7 @@ export default class DataTable extends DataTableStructuralComponent {
           columnWidth: normalizeWidth(col.width!),
           fixed: col.fixed,
           onChange: (_, selection: Record<string, any>[]) =>
-            this.props.onSelectionChange(selection),
+            this.props.onSelectionChange([...selection]),
         };
       } else {
         columns.push({
@@ -98,3 +99,7 @@ export default class DataTable extends DataTableStructuralComponent {
     );
   }
 }
+
+(DataTable as any).displayName = getComponentName('dataTable');
+
+export default DataTable;

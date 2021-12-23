@@ -2,7 +2,9 @@ import { ReactNode } from 'react';
 import { SelectOptionStructuralComponent } from '@zora/core/dist/select';
 import { Select as AntSelect } from 'antd';
 
-export default class Option extends SelectOptionStructuralComponent {
+import { getComponentName } from '../basic';
+
+class Option extends SelectOptionStructuralComponent {
   public render(): ReactNode {
     return (
       <AntSelect.Option
@@ -15,3 +17,7 @@ export default class Option extends SelectOptionStructuralComponent {
     );
   }
 }
+
+(Option as any).displayName = getComponentName('option');
+
+export default Option;

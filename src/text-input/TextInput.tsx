@@ -2,9 +2,9 @@ import { ReactNode } from 'react';
 import { TextInputStructuralComponent } from '@zora/core/dist/text-input';
 import { InputProps, Input as AntInput } from 'antd';
 
-import { convertSize } from '../basic';
+import { getComponentName, convertSize } from '../basic';
 
-export default class TextInput extends TextInputStructuralComponent {
+class TextInput extends TextInputStructuralComponent {
   private resolveProps(): InputProps {
     const props: InputProps = {
       className: this.getComponentClassNames(),
@@ -30,3 +30,7 @@ export default class TextInput extends TextInputStructuralComponent {
     return <AntInput {...this.resolveProps()} />;
   }
 }
+
+(TextInput as any).displayName = getComponentName('textInput');
+
+export default TextInput;

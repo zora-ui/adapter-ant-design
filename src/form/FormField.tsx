@@ -2,7 +2,9 @@ import { ReactNode } from 'react';
 import { FormFieldStructuralComponent } from '@zora/core/dist/form';
 import { Form as AntForm } from 'antd';
 
-export default class FormField extends FormFieldStructuralComponent {
+import { getComponentName } from '../basic';
+
+class FormField extends FormFieldStructuralComponent {
   public render(): ReactNode {
     return (
       <AntForm.Item
@@ -17,3 +19,7 @@ export default class FormField extends FormFieldStructuralComponent {
     );
   }
 }
+
+(FormField as any).displayName = getComponentName('formField');
+
+export default FormField;
