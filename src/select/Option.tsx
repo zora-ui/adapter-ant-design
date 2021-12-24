@@ -9,7 +9,7 @@ class Option extends SelectOptionStructuralComponent {
     return (
       <AntSelect.Option
         className={this.getComponentClassNames()}
-        value={this.props.value}
+        value={this.props.value!}
         disabled={this.props.disabled}
       >
         {this.props.children || this.props.label}
