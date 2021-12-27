@@ -1,5 +1,6 @@
+import { ComplexPlacement } from 'petals-ui/dist/basic';
 import { ButtonSize } from 'petals-ui/dist/button';
-import { getComponentName as _getComponentName } from '@zora/core/dist/basic';
+import { capitalize, getComponentName as _getComponentName } from '@zora/core/dist/basic';
 
 type AntSizeType = 'large' | 'middle' | 'small';
 
@@ -11,4 +12,10 @@ function convertSize(size: ButtonSize): AntSizeType {
   return size === 'medium' ? 'middle' : size;
 }
 
-export { getComponentName, convertSize };
+function convertPlacement(placement: ComplexPlacement = 'bottom'): string | undefined {
+  const parts = placement.split('-');
+
+  return parts.length === 1 ? placement : `${parts[0]}${capitalize(parts[1])}`;
+}
+
+export { getComponentName, convertSize, convertPlacement };

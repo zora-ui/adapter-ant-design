@@ -13,7 +13,13 @@ export * from './text-area';
 export * from './select';
 export * from './radio';
 
+// Feedback
+export * from './wait';
+export * from './message';
+export * from './dialog';
+
 export * from './form';
 export * from './data-table';
 
 export * from './tooltip';
+export * from './popover';

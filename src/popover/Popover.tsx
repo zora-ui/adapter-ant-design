@@ -1,14 +1,15 @@
 import { ReactNode } from 'react';
-import { TooltipStructuralComponent } from '@zora/core/dist/tooltip';
-import { TooltipProps, Tooltip as AntTooltip } from 'antd';
+import { PopoverStructuralComponent } from '@zora/core/dist/popover';
+import { PopoverProps, Popover as AntPopover } from 'antd';
 
 import { getComponentName, convertPlacement } from '../basic';
 
-class Tooltip extends TooltipStructuralComponent {
-  private resolveProps(): TooltipProps {
-    const props: TooltipProps = {
+class Popover extends PopoverStructuralComponent {
+  private resolveProps(): PopoverProps {
+    const props: PopoverProps = {
       className: this.getComponentClassNames(),
-      title: this.props.content,
+      title: this.props.title,
+      content: this.props.content,
       placement: convertPlacement(this.props.placement) as any,
       trigger: this.props.trigger || 'hover',
       visible: this.props.visible,
@@ -26,11 +27,11 @@ class Tooltip extends TooltipStructuralComponent {
 
   public render(): ReactNode {
     return (
-      <AntTooltip {...this.resolveProps()}>{this.props.children}</AntTooltip>
+      <AntPopover {...this.resolveProps()}>{this.props.children}</AntPopover>
     );
   }
 }
 
-(Tooltip as any).displayName = getComponentName('tooltip');
+(Popover as any).displayName = getComponentName('popover');
 
-export default Tooltip;
+export default Popover;
