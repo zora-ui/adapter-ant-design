@@ -11,6 +11,7 @@ class FormField extends FormFieldStructuralComponent {
         className={this.getComponentClassNames()}
         label={this.props.label}
         required={this.props.required}
+        validateStatus={this.props.message ? 'error' : undefined}
         help={this.props.message}
         extra={this.props.hint}
       >
