@@ -5,11 +5,13 @@ export * from './button';
 export * from './icon';
 
 // Layouts
+export * from './grid';
 export * from './layout';
 
 // Input fields
 export * from './text-input';
 export * from './text-area';
+export * from './number-input';
 export * from './select';
 export * from './radio';
 
