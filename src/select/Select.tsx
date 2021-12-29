@@ -1,6 +1,9 @@
 import { ReactNode } from 'react';
+
 import { ISelectOptionComponent } from 'petals-ui/dist/select';
+import { isSpecificComponent } from '@zora/core/dist/basic';
 import { SelectStructuralComponent } from '@zora/core/dist/select';
+
 import { Select as AntSelect } from 'antd';
 
 import { getComponentName, convertSize } from '../basic';
@@ -9,8 +12,8 @@ class Select extends SelectStructuralComponent {
   private resolveOptions(): ISelectOptionComponent[] {
     const options: ISelectOptionComponent[] = [];
 
-    ((this.props.children || []) as any[]).forEach((child) => {
-      if (child.type && child.type.displayName === getComponentName('option')) {
+    ([] as any).concat(this.props.children).forEach((child) => {
+      if (isSpecificComponent(child, getComponentName('option'))) {
         options.push({ ...child.props });
       }
     });

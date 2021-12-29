@@ -23,5 +23,7 @@ export * from './dialog';
 export * from './form';
 export * from './data-table';
 
+export * from './tabs';
+
 export * from './tooltip';
 export * from './popover';
