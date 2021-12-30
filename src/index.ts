@@ -15,13 +15,15 @@ export * from './number-input';
 export * from './select';
 export * from './radio';
 
+export * from './form';
+export * from './data-table';
+
 // Feedback
 export * from './wait';
 export * from './message';
 export * from './dialog';
 
-export * from './form';
-export * from './data-table';
+export * from './nav-menu';
 
 export * from './tabs';
 

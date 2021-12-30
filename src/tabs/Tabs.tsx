@@ -1,4 +1,4 @@
-import { ReactNode, ReactElement } from 'react';
+import { PropsWithChildren, ReactNode, ReactElement } from 'react';
 
 import { ITabPaneComponent } from 'petals-ui/dist/tabs';
 import { includes, isSpecificComponent } from '@zora/core/dist/basic';
@@ -27,10 +27,10 @@ class Tabs extends TabsStructuralComponent {
   private resolveChildren(): ReactNode[] {
     const tabPanes: ReactNode[] = [];
 
-    ([] as any[]).concat(this.props.children).map((tab) => {
+    ([] as any[]).concat(this.props.children).forEach((tab) => {
       if (isSpecificComponent(tab, getComponentName('tabPane'))) {
         const { props } = tab as ReactElement<
-          ITabPaneComponent & { children?: ReactNode }
+          PropsWithChildren<ITabPaneComponent>
         >;
 
         tabPanes.push(
