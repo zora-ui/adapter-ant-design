@@ -24,9 +24,9 @@ class DataTable extends DataTableStructuralComponent {
           total: this.props.total,
           onChange: (page: number, pageSize: number) => {
             if (page !== this.props.currentPage) {
-              this.props.onCurrentChange(page);
+              this.props.onCurrentChange && this.props.onCurrentChange(page);
             } else if (pageSize !== this.props.pageSize) {
-              this.props.onSizeChange(pageSize);
+              this.props.onSizeChange && this.props.onSizeChange(pageSize);
             }
           },
         }
@@ -58,6 +58,7 @@ class DataTable extends DataTableStructuralComponent {
           columnWidth: normalizeWidth(col.width!),
           fixed: col.fixed,
           onChange: (_, selection: Record<string, any>[]) =>
+            this.props.onSelectionChange &&
             this.props.onSelectionChange([...selection]),
         };
       } else {
