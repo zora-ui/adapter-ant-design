@@ -14,7 +14,7 @@ function normalizeWidth(width?: number | string): string | undefined {
 
 class DataTable extends DataTableStructuralComponent {
   private resolvePagination(): any {
-    return this.props.hidePagination !== false
+    return this.props.hidePagination !== true
       ? {
           showSizeChanger: true,
           showQuickJumper: true,
