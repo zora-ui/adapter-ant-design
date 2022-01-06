@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 
-import { ISelectOptionComponent } from 'petals-ui/dist/select';
-import { isSpecificComponent } from '@zora/core/dist/basic';
-import { SelectStructuralComponent } from '@zora/core/dist/select';
+import { SelectValueType, ISelectOptionComponent } from 'petals-ui/dist/select';
+import { isSpecificComponent } from '@zoras/core/dist/basic';
+import { SelectStructuralComponent } from '@zoras/core/dist/select';
 
-import { Select as AntSelect } from 'antd';
+import { SelectProps, Select as AntSelect } from 'antd';
 
 import { getComponentName, convertSize } from '../basic';
 
@@ -21,19 +21,29 @@ class Select extends SelectStructuralComponent {
     return options;
   }
 
+  private resolveProps(): SelectProps<SelectValueType | undefined> {
+    const props: SelectProps<SelectValueType | undefined> & {
+      className: string;
+    } = {
+      className: this.getComponentClassNames(),
+      value: this.props.value,
+      disabled: this.props.disabled,
+      placeholder: this.props.placeholder,
+      options: this.resolveOptions(),
+      allowClear: this.props.clearable,
+      size: this.props.size ? convertSize(this.props.size) : 'middle',
+      onChange: (value) => this.props.onChange && this.props.onChange(value!),
+    };
+
+    if (this.props.multiple) {
+      props.mode = 'multiple';
+    }
+
+    return props;
+  }
+
   public render(): ReactNode {
-    return (
-      <AntSelect
-        className={this.getComponentClassNames()}
-        value={this.props.value}
-        disabled={this.props.disabled}
-        placeholder={this.props.placeholder}
-        options={this.resolveOptions()}
-        allowClear={this.props.clearable}
-        size={this.props.size ? convertSize(this.props.size) : 'middle'}
-        onChange={this.props.onChange}
-      />
-    );
+    return <AntSelect {...this.resolveProps()} />;
   }
 }
 
