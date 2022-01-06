@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { FormFieldStructuralComponent } from '@zora/core/dist/form';
+import { FormFieldStructuralComponent } from '@zoras/core/dist/form';
 import { FormItemProps, Form as AntForm } from 'antd';
 
 import { getComponentName } from '../basic';

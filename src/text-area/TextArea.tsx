@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { TextAreaStructuralComponent } from '@zora/core/dist/text-area';
+import { TextAreaStructuralComponent } from '@zoras/core/dist/text-area';
 import { Input as AntInput } from 'antd';
 
 import { getComponentName, convertSize } from '../basic';

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { IconStructuralComponent } from '@zora/core/dist/icon';
+import { IconStructuralComponent } from '@zoras/core/dist/icon';
 
 import { getComponentName } from '../basic';
 

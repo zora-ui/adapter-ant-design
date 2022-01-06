@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-import { pick } from '@zora/core/dist/basic';
-import { NumberInputStructuralComponent } from '@zora/core/dist/number-input';
+import { pick } from '@zoras/core/dist/basic';
+import { NumberInputStructuralComponent } from '@zoras/core/dist/number-input';
 
 import { InputNumberProps, InputNumber as AntInputNumber } from 'antd';
 

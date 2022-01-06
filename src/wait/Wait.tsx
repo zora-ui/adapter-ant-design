@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { WaitStructuralComponent } from '@zora/core/dist/wait';
+import { WaitStructuralComponent } from '@zoras/core/dist/wait';
 import { SpinProps, Spin as AntSpin } from 'antd';
 
 import { getComponentName } from '../basic';

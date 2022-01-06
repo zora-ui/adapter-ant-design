@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { TabPaneStructuralComponent } from '@zora/core/dist/tabs';
+import { TabPaneStructuralComponent } from '@zoras/core/dist/tabs';
 
 import { getComponentName } from '../basic';
 

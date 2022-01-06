@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { LayoutAsideStructuralComponent } from '@zora/core/dist/layout';
+import { LayoutAsideStructuralComponent } from '@zoras/core/dist/layout';
 import { Layout as AntLayout } from 'antd';
 
 import { getComponentName } from '../basic';

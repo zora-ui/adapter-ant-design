@@ -1,6 +1,6 @@
 import { ComplexPlacement } from 'petals-ui/dist/basic';
 import { ButtonSize } from 'petals-ui/dist/button';
-import { capitalize, getComponentName as _getComponentName } from '@zora/core/dist/basic';
+import { capitalize, getComponentName as _getComponentName } from '@zoras/core/dist/basic';
 
 type AntSizeType = 'large' | 'middle' | 'small';
 

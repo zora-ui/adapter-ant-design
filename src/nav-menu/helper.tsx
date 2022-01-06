@@ -6,7 +6,7 @@ import {
   INavMenuItemGroupComponent,
   INavSubMenuComponent,
 } from 'petals-ui/dist/nav-menu';
-import { isString, pick } from '@zora/core/dist/basic';
+import { isString, pick } from '@zoras/core/dist/basic';
 
 import { Icon } from '../icon';
 

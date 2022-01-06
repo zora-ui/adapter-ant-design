@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
 import { DialogButtonProps, DialogShortcutMethod } from 'petals-ui/dist/dialog';
-import { isPlainObject, pick, mixin } from '@zora/core/dist/basic';
-import { DialogStructuralComponent } from '@zora/core/dist/dialog';
+import { isPlainObject, pick, mixin } from '@zoras/core/dist/basic';
+import { DialogStructuralComponent } from '@zoras/core/dist/dialog';
 
 import { ModalProps, Modal as AntModal } from 'antd';
 

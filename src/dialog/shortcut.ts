@@ -5,8 +5,8 @@ import {
   DialogShortcutMethod,
 } from 'petals-ui/dist/dialog';
 
-import { isFunction } from '@zora/core/dist/basic';
-import { DialogShortcutType, generateAlert, generateConfirm } from '@zora/core/dist/dialog';
+import { isFunction } from '@zoras/core/dist/basic';
+import { DialogShortcutType, generateAlert, generateConfirm } from '@zoras/core/dist/dialog';
 
 import { ModalFuncProps, Modal } from 'antd';
 

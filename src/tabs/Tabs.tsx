@@ -1,8 +1,8 @@
 import { PropsWithChildren, ReactNode, ReactElement } from 'react';
 
 import { ITabPaneComponent } from 'petals-ui/dist/tabs';
-import { includes, isSpecificComponent } from '@zora/core/dist/basic';
-import { TabsStructuralComponent } from '@zora/core/dist/tabs';
+import { includes, isSpecificComponent } from '@zoras/core/dist/basic';
+import { TabsStructuralComponent } from '@zoras/core/dist/tabs';
 
 import { TabsProps, Tabs as AntTabs } from 'antd';
 

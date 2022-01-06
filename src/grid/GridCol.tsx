@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { pick } from '@zora/core/dist/basic';
-import { GridColStructuralComponent } from '@zora/core/dist/grid';
+import { pick } from '@zoras/core/dist/basic';
+import { GridColStructuralComponent } from '@zoras/core/dist/grid';
 import { ColProps, Col as AntCol } from 'antd';
 
 import { getComponentName } from '../basic';

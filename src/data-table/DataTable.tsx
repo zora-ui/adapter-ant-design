@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-import { isNumeric } from '@zora/core/dist/basic';
-import { DataTableStructuralComponent } from '@zora/core/dist/data-table';
+import { isNumeric } from '@zoras/core/dist/basic';
+import { DataTableStructuralComponent } from '@zoras/core/dist/data-table';
 
 import { TableColumnType, TableProps, Table } from 'antd';
 

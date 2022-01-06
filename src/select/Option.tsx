@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { SelectOptionStructuralComponent } from '@zora/core/dist/select';
+import { SelectOptionStructuralComponent } from '@zoras/core/dist/select';
 import { Select as AntSelect } from 'antd';
 
 import { getComponentName } from '../basic';

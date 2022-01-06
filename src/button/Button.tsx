@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ButtonStructuralComponent } from '@zora/core/dist/button';
+import { ButtonStructuralComponent } from '@zoras/core/dist/button';
 import { ButtonProps, Button as AntButton } from 'antd';
 
 import { getComponentName, convertSize } from '../basic';

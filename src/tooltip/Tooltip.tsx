@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { TooltipStructuralComponent } from '@zora/core/dist/tooltip';
+import { TooltipStructuralComponent } from '@zoras/core/dist/tooltip';
 import { TooltipProps, Tooltip as AntTooltip } from 'antd';
 
 import { getComponentName, convertPlacement } from '../basic';

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { GridRowStructuralComponent } from '@zora/core/dist/grid';
+import { GridRowStructuralComponent } from '@zoras/core/dist/grid';
 import { Row as AntRow } from 'antd';
 
 import { getComponentName } from '../basic';

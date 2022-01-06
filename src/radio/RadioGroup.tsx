@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { RadioGroupStructuralComponent } from '@zora/core/dist/radio';
+import { RadioGroupStructuralComponent } from '@zoras/core/dist/radio';
 import { Radio as AntRadio } from 'antd';
 
 import { getComponentName } from '../basic';

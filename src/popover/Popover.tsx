@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { PopoverStructuralComponent } from '@zora/core/dist/popover';
+import { PopoverStructuralComponent } from '@zoras/core/dist/popover';
 import { PopoverProps, Popover as AntPopover } from 'antd';
 
 import { getComponentName, convertPlacement } from '../basic';

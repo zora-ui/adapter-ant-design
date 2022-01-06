@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { AppStructuralComponent } from '@zora/core/dist/app';
+import { AppStructuralComponent } from '@zoras/core/dist/app';
 
 import { getComponentName } from '../basic';
 

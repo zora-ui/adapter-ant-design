@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { NavMenuItemGroupStructuralComponent } from '@zora/core/dist/nav-menu';
+import { NavMenuItemGroupStructuralComponent } from '@zoras/core/dist/nav-menu';
 
 import { getComponentName } from '../basic';
 

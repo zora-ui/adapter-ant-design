@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-import { isSpecificComponent } from '@zora/core/dist/basic';
-import { NavMenuStructuralComponent } from '@zora/core/dist/nav-menu';
+import { isSpecificComponent } from '@zoras/core/dist/basic';
+import { NavMenuStructuralComponent } from '@zoras/core/dist/nav-menu';
 
 import { MenuProps, Menu as AntMenu } from 'antd';
 
