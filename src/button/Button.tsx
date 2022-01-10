@@ -28,7 +28,7 @@ class Button extends ButtonStructuralComponent {
     }
 
     if (this.props.onClick) {
-      props.onClick = (evt) => this.props.onClick(evt);
+      props.onClick = (evt) => this.props.onClick!(evt);
     }
 
     return props;

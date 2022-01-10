@@ -1,0 +1,64 @@
+{
+  "name": "@zoras/adapter-ant-design",
+  "version": "0.0.0",
+  "description": "Adapter for Ant Design",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "zora",
+    "petals",
+    "petals-ui",
+    "ui",
+    "components",
+    "front-end",
+    "frontend",
+    "react",
+    "reactjs",
+    "react.js",
+    "antd",
+    "ant-design"
+  ],
+  "author": "Ourai Lin <ourairyu@gmail.com> (https://ourai.ws/)",
+  "license": "MIT",
+  "homepage": "https://oss.ourai.ws/petals/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zora-ui/adapter-ant-design.git"
+  },
+  "scripts": {
+    "precopy": "rm -rf dist",
+    "copy": "mkdir dist && cp -R src/* dist",
+    "prebuild": "npm run copy",
+    "build": "tsc && rm -rf dist/shims-*.d.ts",
+    "prerelease": "npm run build",
+    "release": "npm publish --access=public"
+  },
+  "dependencies": {
+    "@zoras/core": "0.0.1"
+  },
+  "peerDependencies": {
+    "antd": "^4.18.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@ntks/eslint-config": "0.0.0",
+    "@ntks/stylelint-config": "0.0.5",
+    "@types/node": "^13.11.1",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "antd": "^4.18.2",
+    "eslint": "^7.21.0",
+    "eslint-plugin-react": "^7.27.1",
+    "prettier": "^2.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rimraf": "^3.0.0",
+    "stylelint": "^13.12.0",
+    "typescript": "^4.1.3"
+  }
+}

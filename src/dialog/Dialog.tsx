@@ -27,7 +27,7 @@ class Dialog extends DialogStructuralComponent {
       ]),
       {
         className: this.getComponentClassNames(),
-        footer: this.props.footer || null,
+        footer: (this.props as any).footer || null,
         mask: !this.props.hideMask,
         maskClosable: !this.props.disableMask,
         onOk: this.props.onClose,
