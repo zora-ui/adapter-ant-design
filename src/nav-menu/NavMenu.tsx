@@ -19,8 +19,19 @@ class NavMenu extends NavMenuStructuralComponent {
       className: this.getComponentClassNames(),
       mode: inlineMenu ? 'inline' : 'horizontal',
       triggerSubMenuAction: this.props.subMenuTrigger || 'hover',
-      inlineCollapsed: inlineMenu ? this.props.collapsed : false,
     };
+
+    if (this.props.openFlags) {
+      props.openKeys = this.props.openFlags;
+    }
+
+    if (this.props.activeFlag) {
+      props.selectedKeys = [this.props.activeFlag];
+    }
+
+    // if (inlineMenu) {
+    //   props.inlineCollapsed = this.props.collapsed;
+    // }
 
     return props;
   }
