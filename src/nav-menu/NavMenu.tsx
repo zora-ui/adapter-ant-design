@@ -21,14 +21,23 @@ class NavMenu extends NavMenuStructuralComponent {
       triggerSubMenuAction: this.props.subMenuTrigger || 'hover',
     };
 
+    if (this.props.defaultOpenFlags) {
+      props.defaultOpenKeys = this.props.defaultOpenFlags;
+    }
+
     if (this.props.openFlags) {
-      props.defaultOpenKeys = this.props.openFlags;
+      props.openKeys = this.props.openFlags;
+    }
+
+    if (this.props.defaultActiveFlag) {
+      props.defaultSelectedKeys = [this.props.defaultActiveFlag];
     }
 
     if (this.props.activeFlag) {
-      props.defaultSelectedKeys = [this.props.activeFlag];
+      props.selectedKeys = [this.props.activeFlag];
     }
 
+    // TODO: check if side bar exists
     // if (inlineMenu) {
     //   props.inlineCollapsed = this.props.collapsed;
     // }
