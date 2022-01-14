@@ -22,11 +22,11 @@ class NavMenu extends NavMenuStructuralComponent {
     };
 
     if (this.props.openFlags) {
-      props.openKeys = this.props.openFlags;
+      props.defaultOpenKeys = this.props.openFlags;
     }
 
     if (this.props.activeFlag) {
-      props.selectedKeys = [this.props.activeFlag];
+      props.defaultSelectedKeys = [this.props.activeFlag];
     }
 
     // if (inlineMenu) {
