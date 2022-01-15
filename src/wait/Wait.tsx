@@ -7,7 +7,7 @@ import { getComponentName } from '../basic';
 class Wait extends WaitStructuralComponent {
   private resolveProps(): SpinProps {
     const props: SpinProps = {
-      className: this.getComponentClassNames(),
+      wrapperClassName: this.getComponentClassNames(),
       spinning: this.props.busy,
       tip: this.props.text,
     };
