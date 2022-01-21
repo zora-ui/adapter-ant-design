@@ -8,7 +8,7 @@ class Button extends ButtonStructuralComponent {
   private resolveProps(): ButtonProps {
     const props: ButtonProps = {
       className: this.getHeadlessComponent()!.getExtraClassNames().join(' '),
-      size: this.props.size ? convertSize(this.props.size) : 'middle',
+      size: convertSize(this.props.size),
       disabled: this.props.disabled,
       ghost: this.props.outlined,
       htmlType: this.props.nativeType,

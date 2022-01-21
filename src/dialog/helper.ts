@@ -8,7 +8,7 @@ import { convertSize } from '../basic';
 function convertButtonProps(props: DialogButtonProps): ButtonProps {
   return {
     className: normalizeClassName(props.className),
-    size: props.size ? convertSize(props.size) : 'middle',
+    size: convertSize(props.size),
   };
 }
 

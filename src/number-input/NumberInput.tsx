@@ -19,7 +19,7 @@ class NumberInput extends NumberInputStructuralComponent {
         'min',
       ] as (keyof InputNumberProps)[]),
       className: this.getComponentClassNames(),
-      size: this.props.size ? convertSize(this.props.size) : 'middle',
+      size: convertSize(this.props.size),
       readOnly: this.props.readonly,
       onInput: (text) => this.props.onInput && this.props.onInput(text as any),
       onChange: (value) =>

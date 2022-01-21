@@ -8,8 +8,12 @@ function getComponentName(moduleName: string): string {
   return _getComponentName(moduleName, 'ZoraAnt');
 }
 
-function convertSize(size: ButtonSize): AntSizeType {
-  return size === 'medium' ? 'middle' : size;
+function convertSize(size?: ButtonSize): AntSizeType {
+  if (size) {
+    return size === 'medium' ? 'middle' : size;
+  }
+
+  return 'middle';
 }
 
 function convertPlacement(placement: ComplexPlacement = 'bottom'): string | undefined {

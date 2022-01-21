@@ -10,7 +10,7 @@ class TextInput extends TextInputStructuralComponent {
       className: this.getComponentClassNames(),
       name: this.props.name,
       value: this.props.value,
-      size: this.props.size ? convertSize(this.props.size) : 'middle',
+      size: convertSize(this.props.size),
       disabled: this.props.disabled,
       readOnly: this.props.readonly,
       placeholder: this.props.placeholder,

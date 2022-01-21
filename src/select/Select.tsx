@@ -31,7 +31,7 @@ class Select extends SelectStructuralComponent {
       placeholder: this.props.placeholder,
       options: this.resolveOptions(),
       allowClear: this.props.clearable,
-      size: this.props.size ? convertSize(this.props.size) : 'middle',
+      size: convertSize(this.props.size),
       onChange: (value) => this.props.onChange && this.props.onChange(value!),
     };
 

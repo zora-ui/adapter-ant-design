@@ -10,9 +10,7 @@ class Form extends FormStructuralComponent {
     const props: FormProps = {
       className: this.getComponentClassNames(),
       layout: this.props.layout,
-      size: this.props.controlSize
-        ? convertSize(this.props.controlSize)
-        : 'middle',
+      size: convertSize(this.props.controlSize),
       initialValues: this.props.value,
       colon: false,
     };
