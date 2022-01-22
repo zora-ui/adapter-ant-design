@@ -3,11 +3,11 @@ import { ReactNode } from 'react';
 import { DatePicker as AntDatePicker } from 'antd';
 
 import { resolveBooleanPropValue } from '@zoras/core/dist/basic';
-import { DateRangePickerStructuralComponent } from '@zoras/core/dist/date-range-picker';
+import { DateTimeRangePickerStructuralComponent } from '@zoras/core/dist/date-time-range-picker';
 
 import { getComponentName, convertSize } from '../basic';
 
-class DateRangePicker extends DateRangePickerStructuralComponent {
+class DateTimeRangePicker extends DateTimeRangePickerStructuralComponent {
   private resolveProps(): Record<string, any> {
     const props: Record<string, any> = {
       className: this.getComponentClassNames(),
@@ -21,6 +21,7 @@ class DateRangePicker extends DateRangePickerStructuralComponent {
       inputReadOnly: resolveBooleanPropValue(this.props.inputtable, true),
       dropdownClassName: this.props.popupClassName,
       separator: this.props.separator || '-',
+      showTime: true,
       onChange: (dates, dateStrings) =>
         this.props.onChange &&
         this.props.onChange(
@@ -44,7 +45,7 @@ class DateRangePicker extends DateRangePickerStructuralComponent {
       props.disabledDate = (date) => disableDate(date.toDate());
     }
 
-    props.showToday = showNow;
+    props.showNow = showNow;
 
     return props;
   }
@@ -54,6 +55,8 @@ class DateRangePicker extends DateRangePickerStructuralComponent {
   }
 }
 
-(DateRangePicker as any).displayName = getComponentName('dateRangePicker');
+(DateTimeRangePicker as any).displayName = getComponentName(
+  'dateTimeRangePicker',
+);
 
-export default DateRangePicker;
+export default DateTimeRangePicker;

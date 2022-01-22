@@ -26,13 +26,13 @@ class DatePicker extends DatePickerStructuralComponent {
         this.props.onChange(dateString, date && date.toDate()),
     };
 
-    const { disableDate, showToday = false } = this.props.pickerOption || {};
+    const { disableDate, showNow = true } = this.props.pickerOption || {};
 
     if (disableDate) {
       props.disabledDate = (date) => disableDate(date.toDate());
     }
 
-    props.showToday = showToday;
+    props.showToday = showNow;
 
     return props;
   }

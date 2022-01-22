@@ -1,17 +1,18 @@
 import moment from 'moment';
 import { ReactNode } from 'react';
-import { DatePicker as AntDatePicker } from 'antd';
+import { DatePickerProps, DatePicker as AntDatePicker } from 'antd';
 
 import { resolveBooleanPropValue } from '@zoras/core/dist/basic';
-import { DateRangePickerStructuralComponent } from '@zoras/core/dist/date-range-picker';
+import { DateTimePickerStructuralComponent } from '@zoras/core/dist/date-time-picker';
 
 import { getComponentName, convertSize } from '../basic';
 
-class DateRangePicker extends DateRangePickerStructuralComponent {
-  private resolveProps(): Record<string, any> {
-    const props: Record<string, any> = {
+class DateTimePicker extends DateTimePickerStructuralComponent {
+  private resolveProps(): DatePickerProps {
+    const props: DatePickerProps = {
       className: this.getComponentClassNames(),
       name: this.props.name,
+      value: this.props.value ? moment(this.props.value) : undefined,
       size: convertSize(this.props.size),
       disabled: resolveBooleanPropValue(this.props.disabled, false),
       placeholder: this.props.placeholder,
@@ -20,23 +21,11 @@ class DateRangePicker extends DateRangePickerStructuralComponent {
       format: this.props.format,
       inputReadOnly: resolveBooleanPropValue(this.props.inputtable, true),
       dropdownClassName: this.props.popupClassName,
-      separator: this.props.separator || '-',
-      onChange: (dates, dateStrings) =>
+      showTime: true,
+      onChange: (date, dateString) =>
         this.props.onChange &&
-        this.props.onChange(
-          dateStrings,
-          dates && dates.map((date) => date && date.toDate()),
-        ),
+        this.props.onChange(dateString, date && date.toDate()),
     };
-
-    const resolvedValue = this.props.value
-      ? this.props.value.filter((v) => !!v)
-      : [];
-
-    props.value =
-      resolvedValue.length === 2
-        ? resolvedValue.map((v) => moment(v))
-        : undefined;
 
     const { disableDate, showNow = true } = this.props.pickerOption || {};
 
@@ -44,16 +33,16 @@ class DateRangePicker extends DateRangePickerStructuralComponent {
       props.disabledDate = (date) => disableDate(date.toDate());
     }
 
-    props.showToday = showNow;
+    props.showNow = showNow;
 
     return props;
   }
 
   public render(): ReactNode {
-    return <AntDatePicker.RangePicker {...this.resolveProps()} />;
+    return <AntDatePicker {...this.resolveProps()} />;
   }
 }
 
-(DateRangePicker as any).displayName = getComponentName('dateRangePicker');
+(DateTimePicker as any).displayName = getComponentName('dateTimePicker');
 
-export default DateRangePicker;
+export default DateTimePicker;
