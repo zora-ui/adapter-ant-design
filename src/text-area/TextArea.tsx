@@ -18,7 +18,7 @@ class TextArea extends TextAreaStructuralComponent {
       maxLength: this.props.maxLength,
       minLength: this.props.minLength,
       rows: this.props.rows,
-      showCount: this.props.wordage,
+      showCount: this.props.showWordage,
       onInput: ({ target }) =>
         this.props.onInput && this.props.onInput((target as any).value),
       onChange: ({ target }) =>
