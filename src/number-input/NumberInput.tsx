@@ -6,6 +6,7 @@ import { NumberInputStructuralComponent } from '@zoras/core/dist/number-input';
 import { InputNumberProps, InputNumber as AntInputNumber } from 'antd';
 
 import { getComponentName, convertSize } from '../basic';
+import { resolvePrefixOrSuffix } from './helper';
 
 class NumberInput extends NumberInputStructuralComponent {
   private resolveProps(): InputNumberProps {
@@ -21,6 +22,8 @@ class NumberInput extends NumberInputStructuralComponent {
       className: this.getComponentClassNames(),
       size: convertSize(this.props.size),
       readOnly: this.props.readonly,
+      prefix: resolvePrefixOrSuffix(this.props.prefix),
+      addonAfter: resolvePrefixOrSuffix(this.props.suffix),
       onInput: (text) => this.props.onInput && this.props.onInput(text as any),
       onChange: (value) =>
         this.props.onChange && this.props.onChange(value as any),

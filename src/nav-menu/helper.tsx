@@ -2,7 +2,6 @@ import { MenuItemProps, SubMenuProps } from 'antd';
 
 import { IMenuItemComponent } from 'petals-ui/dist/menu';
 import {
-  INavMenuItemComponent,
   INavMenuItemGroupComponent,
   INavSubMenuComponent,
 } from 'petals-ui/dist/nav-menu';

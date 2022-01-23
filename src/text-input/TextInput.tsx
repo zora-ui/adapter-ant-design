@@ -3,6 +3,7 @@ import { TextInputStructuralComponent } from '@zoras/core/dist/text-input';
 import { InputProps, Input as AntInput } from 'antd';
 
 import { getComponentName, convertSize } from '../basic';
+import { resolvePrefixOrSuffix } from './helper';
 
 class TextInput extends TextInputStructuralComponent {
   private resolveProps(): InputProps {
@@ -17,6 +18,8 @@ class TextInput extends TextInputStructuralComponent {
       allowClear: this.props.clearable,
       maxLength: this.props.maxLength,
       minLength: this.props.minLength,
+      prefix: resolvePrefixOrSuffix(this.props.prefix),
+      suffix: resolvePrefixOrSuffix(this.props.suffix),
       onInput: ({ target }) =>
         this.props.onInput && this.props.onInput((target as any).value),
       onChange: ({ target }) =>
