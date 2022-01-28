@@ -42,10 +42,13 @@ class DataTable extends DataTableStructuralComponent {
       dataSource: this.props.dataSource,
       pagination: this.resolvePagination(),
       loading: this.props.loading,
-      scroll: { y: '300px' },
       bordered: true,
       rowKey: this.props.rowKey || 'id',
     };
+
+    if (this.props.autoHeight !== true) {
+      props.scroll = { y: '300px' };
+    }
 
     const columns: TableColumnType<Record<string, any>>[] = [];
 
@@ -92,8 +95,16 @@ class DataTable extends DataTableStructuralComponent {
   }
 
   public render(): ReactNode {
+    const classNames = [style.ZoraDataTable];
+
+    if (this.props.autoHeight !== true) {
+      classNames.push(style['ZoraDataTable--fixedHeight']);
+    }
+
+    classNames.push(this.getComponentClassNames());
+
     return (
-      <div className={this.getComponentClassNames()}>
+      <div className={classNames.join(' ')}>
         <div className={this.getDescendantClassName('tableWrapper')}>
           <Table {...this.resolveProps()} />
         </div>
