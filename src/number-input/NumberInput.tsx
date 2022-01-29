@@ -1,38 +1,21 @@
 import { ReactNode } from 'react';
+import { InputNumber as AntInputNumber } from 'antd';
 
-import { pick } from '@zoras/core/dist/basic';
 import { NumberInputStructuralComponent } from '@zoras/core/dist/number-input';
 
-import { InputNumberProps, InputNumber as AntInputNumber } from 'antd';
-
-import { getComponentName, convertSize } from '../basic';
+import { getComponentName } from '../basic';
+import { resolveNumericFormControlProps } from '../form-control';
 import { resolvePrefixOrSuffix } from './helper';
 
 class NumberInput extends NumberInputStructuralComponent {
-  private resolveProps(): InputNumberProps {
-    return {
-      ...pick(this.props, [
-        'name',
-        'value',
-        'disabled',
-        'placeholder',
-        'max',
-        'min',
-      ] as (keyof InputNumberProps)[]),
-      className: this.getComponentClassNames(),
-      size: convertSize(this.props.size),
-      readOnly: this.props.readonly,
-      prefix: resolvePrefixOrSuffix(this.props.prefix),
-      addonAfter: resolvePrefixOrSuffix(this.props.suffix),
-      onInput: (text) => this.props.onInput && this.props.onInput(text as any),
-      onChange: (value) =>
-        this.props.onChange && this.props.onChange(value as any),
-    };
-  }
-
   public render(): ReactNode {
     return (
-      <AntInputNumber {...this.resolveProps()}>
+      <AntInputNumber
+        className={this.getComponentClassNames()}
+        prefix={resolvePrefixOrSuffix(this.props.prefix)}
+        addonAfter={resolvePrefixOrSuffix(this.props.suffix)}
+        {...resolveNumericFormControlProps(this.props)}
+      >
         {this.props.children}
       </AntInputNumber>
     );
