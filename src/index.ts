@@ -16,6 +16,7 @@ export * from './text-input';
 export * from './text-area';
 export * from './number-input';
 export * from './password';
+export * from './url-input';
 export * from './radio';
 export * from './select';
 export * from './date-picker';
