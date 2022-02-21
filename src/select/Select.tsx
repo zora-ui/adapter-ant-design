@@ -26,6 +26,7 @@ class Select extends SelectStructuralComponent {
       className: string;
     } = {
       className: this.getComponentClassNames(),
+      style: this.props.style,
       value: this.props.value,
       disabled: this.props.disabled,
       placeholder: this.props.placeholder,
