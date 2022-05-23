@@ -1,6 +1,6 @@
 {
   "name": "@zoras/adapter-ant-design",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Adapter for Ant Design",
   "main": "dist/index.js",
   "module": "dist/index.js",
